@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="UTF8">
+
+<head>
+	<title> 我的预订 </title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="https://ticketgen.gitee.io/dist/css/common.dist.css">
+	<link rel="stylesheet" href="https://ticketgen.gitee.io/dist/css/all.min.css">
+	<script src="https://ticketgen.gitee.io/dist/js/qrcode.min.js"></script>
+	<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+	<script src="https://ticketgen.gitee.io/api/data.js"></script>
+</head>
+<script>
+	var ip = returnCitySN["cip"];
+    var url = document.location.toString();//获取url
+    var urlParmStr = url.slice(url.indexOf('#')+1);//获取问号后字符串
+    var acc = urlParmStr.split("&")[0];
+    var name = decodeURI(urlParmStr.split("&")[1]);
+    var startTime = urlParmStr.split("&")[2];
+    var typString = urlParmStr.split("&")[3];
+    acc = parseInt(acc, 16);
+    startTime = parseInt(startTime, 16);
+    typString = parseInt(typString, 16);
+    typString = typString.toString();
+    var weekArray = new Array("日", "一", "二", "三", "四", "五", "六");
+</script>
+<div id="gApp">
+	<div id="gMain" class="row no-gutters">
+		<script>
+			var oDiv,oImg;
+            var tmp = 0;
+            		for(var i=0;i<typString.length;i++){
+				        var typ = parseInt(typString[i]);
+                        if(typ == 0)continue;
+				        var time = new Date((startTime+86400*i)*1000);
+				        var month = time.getMonth()+1;
+				        var day = time.getDate();
+				        var wkday = weekArray[new Date("2020/"+month+"/"+day).getDay()];
+                        var tim = month * 31 + day - 32;
+                        var cs = typ * 403 + tim;
+                        var cs0 = acc * 4030 + cs;
+                        cs0 = cs0.toString(16);
+                        var toUrlScan = "https://ticketgen.gitee.io/scan#"+cs0+"&"+name;
+                        var toUrlPrint = "https://ticketgen.gitee.io/print#"+cs0+"&"+name;
+                		oDiv = document.createElement("div");
+                		oDiv.id = "col"+tmp;
+                		oDiv.className = "col-6 mt-2 d-flex justify-content-center";
+                		document.getElementById("gMain").appendChild(oDiv);
+                		document.getElementById("col"+tmp).innerHTML = "<div class=\"order-panel\" style=\"font-size: 1.9vw !important;\"><div class=\"d-flex justify-content-between\"><div><div class=\"order-name\">"+foodArray[typ]+"</div><a href=\""+toUrlPrint+"\"><div class=\"qrcode-main\"></div></a><div class=\"user-name text-center\"><span>"+name+"</span></div></div><div class=\"ticket-body\"><div class=\"order-area\">"+typ+"<span>  </span><span class=\"order-area-tail\"> 区</span></div><div class=\"order-location\"><span>食堂"+locArray[typ]+"楼<span><br><span class=\"order-date-span\">"+month+"/"+day+" 周"+wkday+"</span></span></span></div></div><!----></div></div>";
+				        oImg = document.createElement("img");
+                		oImg.className = "img-qrcode border";
+                		document.getElementsByClassName("qrcode-main")[tmp].appendChild(oImg);
+                		QRCode.toDataURL(toUrlScan, { errorCorrectionLevel: 'L' }, function (err, url) {
+                    			document.getElementsByClassName("img-qrcode border")[tmp].src = url
+                		})
+                        tmp++;
+           		 }
+		</script>
+	</div>
+</div>
+<style>
+	.order-panel {
+		width: 25em;
+		padding: 1em;
+		border: solid 1px #ccc;
+		text-align: center;
+		color: #333
+	}
+	
+	.order-name {
+		width: 4.8em;
+		padding: 2px 4px;
+		color: #333;
+		font-size: 2em;
+		font-weight: 700
+	}
+	
+	.img-qrcode {
+		width: 9.6em
+	}
+	
+	.user-name {
+		font-size: 2.4em;
+		margin-top: .2em
+	}
+	
+	.ticket-body {
+		padding-right: 1em
+	}
+	
+	.order-area {
+		margin: -.3em 0;
+		font-size: 10em;
+		font-weight: 700
+	}
+	
+	.order-area-tail {
+		font-size: .2em
+	}
+	
+	.order-location {
+		margin-top: .75em;
+		font-size: 1.8em;
+		line-height: 2em;
+		font-weight: 700
+	}
+</style>
+</body>
+
+</html>

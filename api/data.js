@@ -1,0 +1,14 @@
+var url = document.location.toString();
+var req = parseInt(url.slice(url.indexOf('#')+1));
+var numArray = ["undefined","1","2","3","4","5","6","7","8","9"];
+var foodArray = ["undefined","自助餐","套餐A","套餐A","套餐A","套餐B","盖浇饭","套餐C","面档","套餐B"];
+var locArray = ["undefined","一","一","一","二","二","二","二","二","二"];
+var typeArray = [0,1,2,2,3];//0: root, 1:superadmin, 2:admin, 3:vip, 4:user, 5:temporary
+var levelArray = ["root","superadmin","admin","vip","user","temporary"];
+var expireArray = [99999999999,99999999999,99999999999,99999999999,1633017600];//unix时间戳，单位秒
+var ipArray1 = ["51c2e56482530269035889456bd321b3f9878b16","51c2e56482530269035889456bd321b3f9878b16","96996bbe6595ed8405988dac0182541936f30876","533e39ff0a8ba23fbc73ebc5ecbe3aad59968724","6d7170479d454fcefb6b9061ca3366bdb5c0e38c"];
+var ipArray2 = ["96996bbe6595ed8405988dac0182541936f30876","51c2e56482530269035889456bd321b3f9878b16","96996bbe6595ed8405988dac0182541936f30876","533e39ff0a8ba23fbc73ebc5ecbe3aad59968724","6d7170479d454fcefb6b9061ca3366bdb5c0e38c"];
+var ipArray3 = ["533e39ff0a8ba23fbc73ebc5ecbe3aad59968724","51c2e56482530269035889456bd321b3f9878b16","96996bbe6595ed8405988dac0182541936f30876","533e39ff0a8ba23fbc73ebc5ecbe3aad59968724","6d7170479d454fcefb6b9061ca3366bdb5c0e38c"];
+var nameArray = ["dc76e9f0c0006e8f919e0c515c66dbba3982f785","a7a12ba71f7ab5331cfffe1a0c1e12baa2661069","a28079aa9ed5861504d0fde60544f715df764110","fab60904d36306295b5d27dc1745a645482b2201","032b83ec07d20c839f43b18b85ee2a71906cc524"];
+var examinArray = [0,0,0,0,0,0];
+var statusArray = ["未提交续期申请","待审核","审核中","审核未通过，请一周后再试。","审核通过"];

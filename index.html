@@ -1,0 +1,97 @@
+<html lang="en" class="sr js"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TicketGen - 首页</title>
+<link href="https://fonts.googleapis.com/css?family=Oxygen:400,700|Arimo:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://ticketgen.gitee.io/index/dist/css/style.css">
+<script src="https://ticketgen.gitee.io/index/dist/js/scrollreveal.min.js"></script>
+<script src="https://ticketgen.gitee.io/api/data.js"></script>
+<script type="text/ecmascript" src="https://ticketgen.gitee.io/dist/js/sha1.js"></script>
+<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+</head>
+<body class="is-boxed has-animations" style="height: 100%;">
+	<section class="pricing section">
+		<div class="container">
+			<div class="pricing-inner section-inner">
+				<h2 class="section-title mt-0 text-center">TicketGen Beta 1.2</h2>
+					<div class="pricing-faqs container-sm is-revealing" style="visibility: visible;">
+			                                 	<ul class="accordion">
+								<div class="accordion-title">
+									<span>姓名：</span>
+									<input id="name" type="text" style="width: 120px">
+								</div>
+								<div class="accordion-title">
+									<span>餐类：</span>
+									<select id="typ" style="height: 35px">
+                								<option value="1">1区 自助餐</option>
+                								<option value="2">2区 套餐A</option>
+                								<option value="3">3区 套餐A</option>
+                								<option value="4">4区 套餐A</option>
+                								<option value="5">5区 套餐B</option>
+                								<option value="6">6区 盖浇饭</option>
+                								<option value="7">7区 套餐C</option>
+                								<option value="8">8区 面档</option>
+                								<option value="9">9区 套餐B</option>
+            								</select>
+								</div>
+								<div class="accordion-title">
+									<span>日期：</span>
+									<div style="text-align:right">
+										<input id="month" type="text" value="1" style="width: 71px;">
+										<span>月<span>
+										<input id="day" type="text" value="1" style="width: 71px;">
+										<span>日<span>
+									</div>
+								</div>
+								<div class="accordion-title">
+									<button id="btn">生成</button>
+									<div style="text-align: rignt">
+            									<input type="checkbox" id="policy">
+                								我已阅读并同意<a href="https://ticketgen.gitee.io/index/policy">用户协议</a>。
+									</div>
+								</div>
+						</ul>
+					</div>
+			</div>
+		</div>
+	</section>
+	<br><br><br>
+    <div class="pricing-tables-wrap">
+		<div class="pricing-table is-revealing" style="visibility: visible;">
+			<div class="pricing-table-inner">
+				<div class="pricing-table-main">
+					<div class="pricing-table-header mb-24 pb-24">
+						<div class="pricing-table-title h4 mt-0 mb-16">批量生成？</div>
+						<div class="pricing-table-price"><small>切换到<a href="https://ticketgen.gitee.io/multiple-index">批量生成</a></small></div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+    <br><br><br>
+	<footer class="site-footer">
+		<div class="container">
+			<div class="site-footer-inner">
+				<ul class="footer-links list-reset">
+					<li>
+						<a href="https://ticketgen.gitee.io/index/index">首页</a>
+					</li>
+					<li>
+						<a href="https://ticketgen.gitee.io/index/download">下载</a>
+					</li>
+					<li>
+						<a href="https://ticketgen.gitee.io/index/check">查询</a>
+					</li>
+                    <li>
+                        <a href="https://ticketgen.gitee.io/index/help">帮助</a>
+                    </li>
+				</ul>
+				
+				<div class="footer-copyright">联系我们：TicketGen-Support@protomail.com</div>
+			</div>
+		</div>
+	</footer>
+<script src="https://ticketgen.gitee.io/index/dist/js/main.min.js"></script>
+<script src="https://ticketgen.gitee.io/dist/js/verify.js"></script>
+</body></html>
